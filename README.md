@@ -1,5 +1,8 @@
 # 扫码登录demo
 
+Github: https://github.com/snake19870227/qrcode-login
+Gitee: https://gitee.com/buhy/qrcode-login
+
 ## 技术逻辑
 
 - 网页端
