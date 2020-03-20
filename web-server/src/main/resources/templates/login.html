@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>扫码登录</title>
+</head>
+<body>
+<img src=""/>
+<h3></h3>
+<input type="hidden" id="loginId">
+<textarea rows="10" cols="80"></textarea>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script>
+    function isLogin() {
+        let loginId = $("#loginId").val();
+        if (loginId && loginId !== "") {
+            $.get("/loginState/" + loginId, function (resp) {
+                if (resp.isScan) {
+                    $("h3").html("已扫码");
+                }
+                if (resp.isLogin) {
+                    window.location.href = "/userInfo";
+                }
+                setTimeout("isLogin()", 1000);
+            });
+        }
+    }
+    $.getJSON("/qrinfo", function (resp) {
+        $("#loginId").val(resp.loginId);
+        $("img").attr("src", "data:image/png;base64," + resp.qrImage);
+        $("textarea").val(resp.qrImage);
+    });
+    setTimeout("isLogin()", 1000);
+</script>
+</body>
+</html>

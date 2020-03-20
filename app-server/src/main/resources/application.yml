@@ -1,0 +1,8 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: qrlogin-app-server
+qrlogin:
+  security:
+    key: 1111111111111111

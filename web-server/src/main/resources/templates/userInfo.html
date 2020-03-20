@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+</head>
+<body>
+<h1 th:text="${session.userInfo.name}"></h1>
+<a th:href="@{/logout}">退出</a>
+</body>
+</html>
